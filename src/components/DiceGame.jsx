@@ -19,7 +19,8 @@ const DiceGame = () => {
       const res = await axios.post("http://localhost:5000/api/roll-dice", { bet });
       setRoll(res.data.roll);
       setBalance(res.data.balance);
-      setMessage(res.data.roll >= 4 ? "You Win aahhhhh! 🎉" : "You Lose 😢");
+      setMessage(res.data.roll >= 50 ? "You Lose 😢" : res.data.roll >= 4 ? "You Win aahhhhh! 🎉" : "You Lose 😢");
+
     } catch (error) {
       setMessage(error.response.data.error);
     }
